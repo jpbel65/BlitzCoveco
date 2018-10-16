@@ -39,11 +39,38 @@ function stack(puzzles){
 	return JSON.stringify(result);
 }
 
-function algo(oi,oj,ei,ej,path){;
-	console.log(path);
-	console.log(oi);
-	console.log(oj);
-	console.log(ei);
-	console.log(ej);
-	return path;
+function algo(oi,oj,ei,ej,path){
+	var di = ei-oi;
+	var dj = ej-oj;
+	var pmak = [];
+	var result = path;
+	console.log('di: '+di+', dj: '+dj);
+	for(var i = 0;i<path.length;i++){
+		if(path[i] === 'r')--dj;
+		if(path[i] === 'l')++dj;
+		if(path[i] === 'u')++di;
+		if(path[i] === 'd')--di;
+		if(path[i] === '?')pmak.push(i);
+	}
+	console.log('di: '+di+', dj: '+dj);
+	if(pmak.length !== Math.abs(di+dj))return 'nothing';
+	for(var i = 0;i<pmak.length;i++){
+		if(dj<0){
+			dj++;
+			result = result.replace("?","l");
+		}
+		if(dj>0){
+			dj--;
+			result = result.replace("?","r");
+		}
+		if(di<0){
+			di++;
+			result = result.replace("?","u");
+		}
+		if(di>0){
+			di--;
+			result = result.replace("?","d");
+		}
+	}
+	return result;
 }
