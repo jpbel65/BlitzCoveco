@@ -27,7 +27,7 @@ app.post('/', function(req, res){
 	res.send(obj);
 });
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
 	console.log('Ready');
 });
 

@@ -1,1 +1,1 @@
-worker: node blitz.js
+web: node blitz.js
