@@ -27,7 +27,7 @@ app.post('/', function(req, res){
 	res.send(obj);
 });
 
-app.listen($PORT, function(){
+app.listen(3000, function(){
 	console.log('Ready');
 });
 
