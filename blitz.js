@@ -53,14 +53,14 @@ function algo(oi,oj,ei,ej,path){
 		if(path[i] === '?')pmak.push(i);
 	}
 	console.log('di: '+di+', dj: '+dj);
-	if(Math.abs(di+dj) === 0 && pmak.length > 0){
-		for(var i = 0;i<pmak.length%2;i++){
+	if(Math.abs(di)+Math.abs(dj) === 0 && pmak.length > 0){
+		for(var i = 0;i<=pmak.length%2;i++){
 			result = result.replace("?","d");
 			result = result.replace("?","u");
 		}
 		return result;
 	}
-	if(pmak.length !== Math.abs(di+dj))return 'nothing';
+	if(pmak.length !== Math.abs(di)+Math.abs(dj))return 'nothing';
 	for(var i = 0;i<pmak.length;i++){
 		if(dj<0){
 			dj++;
