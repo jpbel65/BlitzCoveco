@@ -53,8 +53,8 @@ function algo(oi,oj,ei,ej,path){
 		if(path[i] === '?')pmak.push(i);
 	}
 	console.log('di: '+di+', dj: '+dj);
-	if(pmak.length !== Math.abs(di+dj))return 'nothing';
 	if(Math.abs(di+dj) === 0 && pmak.length > 0)return 'test';
+	if(pmak.length !== Math.abs(di+dj))return 'nothing';
 	for(var i = 0;i<pmak.length;i++){
 		if(dj<0){
 			dj++;
