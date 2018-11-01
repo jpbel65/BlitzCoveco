@@ -53,14 +53,22 @@ function algo(oi,oj,ei,ej,path){
 		if(path[i] === '?')pmak.push(i);
 	}
 	console.log('di: '+di+', dj: '+dj);
+	var ll = pmak.length%2;
+	if(Math.abs(di)+Math.abs(dj) < pmak.length){
+		for(var i = 0;i<=ll;i++){
+			result = result.replace("?","d");
+			result = result.replace("?","u");
+			pmak = pmak.slice(2);
+		}
+	}
 	if(Math.abs(di)+Math.abs(dj) === 0 && pmak.length > 0){
-		for(var i = 0;i<=pmak.length%2;i++){
+		for(var i = 0;i<=ll;i++){
 			result = result.replace("?","d");
 			result = result.replace("?","u");
 		}
 		return result;
 	}
-	if(pmak.length !== Math.abs(di)+Math.abs(dj))return 'nothing';
+	 // if(pmak.length !== Math.abs(di)+Math.abs(dj))return 'nothing';
 	for(var i = 0;i<pmak.length;i++){
 		if(dj<0){
 			dj++;
