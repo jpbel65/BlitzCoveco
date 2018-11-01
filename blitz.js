@@ -44,7 +44,6 @@ function algo(oi,oj,ei,ej,path){
 	var dj = ej-oj;
 	var pmak = [];
 	var result = path;
-	var onetwo = true;
 	console.log('di: '+di+', dj: '+dj);
 	for(var i = 0;i<path.length;i++){
 		if(path[i] === 'r')--dj;
@@ -55,15 +54,9 @@ function algo(oi,oj,ei,ej,path){
 	}
 	console.log('di: '+di+', dj: '+dj);
 	if(Math.abs(di+dj) === 0 && pmak.length > 0){
-		for(var i = 0;i<pmak.length;i++){
-			if(onetwo === true){
-				result = result.replace("?","u");
-				onetwo == false;
-			}
-			if(onetwo === false){
-				result = result.replace("?","d");
-				onetwo == true;
-			}
+		for(var i = 0;i<pmak.length%2;i++){
+			result = result.replace("?","d");
+			result = result.replace("?","u");
 		}
 		return result;
 	}
